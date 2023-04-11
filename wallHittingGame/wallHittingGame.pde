@@ -45,14 +45,11 @@ void draw(){
     y = 0 + e/2; //壁の位置に移動
     v_y = v_y * (-1); //速度を反対方向にする
   }
-  //下側での反射
-  if ( y + e/2 >= 600) {
-    y = 600 - e/2; //壁の位置に移動
-    v_y = v_y * (-1); //速度を反対方向にする
-  }
+
+  //playerに触れた時の反射
   if(touch == 1){
-    v_x = v_x * (-1);
-    v_y = v_y * (-1);
+    v_x = (v_x + random(0, 1)) * (-1);
+    v_y = (v_y + random(0, 1)) * (-1);
   }
   
   //描画
@@ -69,6 +66,7 @@ void draw(){
   }else{
     background(300,80,99);
     fill(3,1,80);
-    text("game over",150,300);
+    textSize(50);
+    text("game over",100,300);
   }
 }
