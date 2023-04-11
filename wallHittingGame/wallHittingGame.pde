@@ -7,6 +7,11 @@ float px = 0; // playerXの位置
 float py = 550; // playerYの位置
 float v_x = 4; // x速度
 float v_y = 3; // y速度
+int scoreW = 10; //スコアの幅
+int scoreH = 10; //スコアの高さ
+float scoreX = 200; //スコアのX位置
+float scoreY = 50; //スコアのY位置
+int score = 0; //スコア
 
 void setup(){
   size(400,600); 
@@ -22,6 +27,11 @@ void draw(){
   touch = 1;
   }else{
     touch = 0;
+  }
+
+  // scoreを獲得した場合はscoreを加算
+  if (abs(x-scoreX)<((e/2)+scoreW/2)&&abs(y-scoreY)<((e/2)+scoreH/2)){
+    score = score + 50;
   }
   
   // gameOverの判定
@@ -58,10 +68,15 @@ void draw(){
   textSize(20);
   fill(0, 0, 0);
   text("speed: "+sqrt(sq(v_x)+sq(v_y)),10,50);
+  textSize(20);
+  fill(0, 0, 0);
+  text("score: "+ score ,10,70);
   noStroke();
   rectMode(CENTER);
   fill(3, 1, 80);
   rect(px,py,playerW,playerH);
+  fill(300, 80, 99);
+  rect(scoreX,scoreY,scoreW,scoreH);
   fill(60, 90, 90);
   ellipse(x,y,e,e);
   x = x + v_x; //位置をv_xピクセル移動
