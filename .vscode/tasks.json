@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run",
+        "command": "<<processing-javaのpath>>",
+        "type": "process",
+        "args": [
+          "--force",
+          "--sketch=<<ここにprocessing実行ファイルのpath>>",
+          "--run"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      }
+    ]
+  }
