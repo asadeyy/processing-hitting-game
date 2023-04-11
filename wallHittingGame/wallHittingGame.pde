@@ -55,6 +55,9 @@ void draw(){
   //描画
   if(gameOver == 0){
   background(99);
+  textSize(20);
+  fill(0, 0, 0);
+  text("speed: "+sqrt(sq(v_x)+sq(v_y)),10,50);
   noStroke();
   rectMode(CENTER);
   fill(3, 1, 80);
